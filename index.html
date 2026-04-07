@@ -84,9 +84,9 @@
   <section class="about-section" id="about-detail">
     <div class="about-grid about-grid-full">
       <div class="about-text">
-        <div class="section-label">About Me</div>
-        <h2>Storyteller. Strategist. <span>Culture Shaper.</span></h2>
-        <p>
+        <div class="section-label reveal">About Me</div>
+        <h2 class="reveal">Storyteller. Strategist. <span>Culture Shaper.</span></h2>
+        <p class="reveal">
           I've spent my career connecting brands with the creators and communities that
           shape culture. Whether scaling influencer programs at <strong>Uber</strong>,
           orchestrating multi-platform content partnerships at <strong>Ayzenberg</strong>
@@ -95,14 +95,14 @@
           at <strong>TBWA\Media Arts Lab</strong> &mdash; I turn big-picture vision into
           campaigns people actually talk about.
         </p>
-        <p>
+        <p class="reveal">
           I've consulted for <strong>Apple</strong> at TBWA\Media Arts Lab, shaped digital
           strategy for <strong>Red Bull</strong> at Carat, and produced multi-platform content
           for <strong>L'Oreal</strong> at Moxie Interactive. My work spans influencer marketing,
           end-to-end content production, and integrated campaign strategy &mdash; always with an
           eye toward cultural relevance and measurable impact.
         </p>
-        <div class="about-stats">
+        <div class="about-stats reveal">
           <div class="stat">
             <div class="stat-number">10+</div>
             <div class="stat-label">Years Experience</div>
@@ -148,7 +148,7 @@
 
   <!-- Work / Portfolio -->
   <section id="experience" class="work-section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <div class="section-label">Portfolio</div>
       <h2>Featured Work</h2>
       <p>Campaigns, content, and partnerships that made an impact.</p>
@@ -166,7 +166,7 @@
     <div class="work-grid">
 
       <!-- Uber -->
-      <div class="work-card work-card-wide" data-category="influencer">
+      <div class="work-card work-card-wide reveal" data-category="influencer">
         <div class="work-media">
           <!-- Replace src with campaign image/video thumbnail -->
           <div class="media-placeholder">
@@ -190,7 +190,7 @@
       </div>
 
       <!-- Intel / Microsoft / Universal -->
-      <div class="work-card" data-category="influencer content">
+      <div class="work-card reveal" data-category="influencer content">
         <div class="work-media">
           <div class="media-placeholder">
             <span class="media-icon">&#128247;</span>
@@ -212,7 +212,7 @@
       </div>
 
       <!-- WWW -->
-      <div class="work-card" data-category="content">
+      <div class="work-card reveal" data-category="content">
         <div class="work-media">
           <div class="media-placeholder">
             <span class="media-icon">&#127908;</span>
@@ -235,7 +235,7 @@
       </div>
 
       <!-- Frito-Lay / Doritos -->
-      <div class="work-card work-card-wide" data-category="content strategy">
+      <div class="work-card work-card-wide reveal" data-category="content strategy">
         <div class="work-media">
           <div class="media-placeholder">
             <span class="media-icon">&#9654;</span>
@@ -257,7 +257,7 @@
       </div>
 
       <!-- Apple / TBWA -->
-      <div class="work-card" data-category="strategy">
+      <div class="work-card reveal" data-category="strategy">
         <div class="work-media">
           <div class="media-placeholder">
             <span class="media-icon">&#128247;</span>
@@ -279,7 +279,7 @@
       </div>
 
       <!-- Red Bull -->
-      <div class="work-card" data-category="strategy">
+      <div class="work-card reveal" data-category="strategy">
         <div class="work-media">
           <div class="media-placeholder">
             <span class="media-icon">&#9654;</span>
@@ -301,7 +301,7 @@
       </div>
 
       <!-- L'Oreal -->
-      <div class="work-card" data-category="content">
+      <div class="work-card reveal" data-category="content">
         <div class="work-media">
           <div class="media-placeholder">
             <span class="media-icon">&#128247;</span>
@@ -355,15 +355,100 @@
   </section>
 
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // ── 1. Scroll-triggered reveal ────────────────────
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+      // ── 2. Nav scroll spy ─────────────────────────────
+      const navLinks = document.querySelectorAll('nav ul li a[href^="#"]');
+      const spySections = [];
+      navLinks.forEach(link => {
+        const id = link.getAttribute('href').substring(1);
+        const el = document.getElementById(id);
+        if (el) spySections.push({ id, el });
+      });
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        spySections.forEach(({ id, el }) => {
+          if (window.scrollY >= el.offsetTop - 150) current = id;
+        });
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+        });
+      });
+
+      // ── 3. Stat count-up animation ────────────────────
+      const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.stat-number').forEach(stat => {
+              const target = parseInt(stat.textContent);
+              const suffix = stat.textContent.replace(/[0-9]/g, '');
+              let count = 0;
+              const step = Math.max(1, Math.ceil(target / 50));
+              const timer = setInterval(() => {
+                count += step;
+                if (count >= target) { count = target; clearInterval(timer); }
+                stat.textContent = count + suffix;
+              }, 30);
+            });
+            statObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      document.querySelectorAll('.about-stats').forEach(el => statObserver.observe(el));
+
+      // ── 4. Card tilt on hover ─────────────────────────
+      document.querySelectorAll('.work-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -6;
+          const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 6;
+          card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transition = 'transform 0.4s ease';
+          card.style.transform = '';
+          setTimeout(() => { card.style.transition = ''; }, 400);
+        });
+      });
+
+    });
+
+    // ── 5. Filter with smooth staggered transitions ─────
     function filterWork(category, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      let delay = 0;
       document.querySelectorAll('.work-card').forEach(card => {
-        if (category === 'all' || card.dataset.category.includes(category)) {
+        const match = category === 'all' || card.dataset.category.includes(category);
+        if (match) {
+          card.classList.remove('filter-hide');
           card.style.display = '';
-          card.style.animation = 'fadeUp 0.5s ease forwards';
+          card.style.animation = 'none';
+          card.offsetHeight;
+          card.style.animation = 'filterIn 0.5s ease forwards';
+          card.style.animationDelay = delay + 's';
+          delay += 0.08;
         } else {
-          card.style.display = 'none';
+          card.classList.add('filter-hide');
+          setTimeout(() => {
+            if (card.classList.contains('filter-hide')) card.style.display = 'none';
+          }, 300);
         }
       });
     }
@@ -372,7 +457,7 @@
   <!-- Skills -->
   <div class="skills-section" id="skills">
     <div class="skills-row">
-      <div class="skill-card">
+      <div class="skill-card reveal">
         <div class="card-icon">&#9670;</div>
         <h3>Strategy</h3>
         <ul>
@@ -382,7 +467,7 @@
           <li>Co-Marketing</li>
         </ul>
       </div>
-      <div class="skill-card">
+      <div class="skill-card reveal">
         <div class="card-icon">&#9733;</div>
         <h3>Influencer & Content</h3>
         <ul>
@@ -392,7 +477,7 @@
           <li>Brand Storytelling</li>
         </ul>
       </div>
-      <div class="skill-card">
+      <div class="skill-card reveal">
         <div class="card-icon">&#9672;</div>
         <h3>Media & Digital</h3>
         <ul>
@@ -402,7 +487,7 @@
           <li>Analytics & Reporting</li>
         </ul>
       </div>
-      <div class="skill-card">
+      <div class="skill-card reveal">
         <div class="card-icon">&#9679;</div>
         <h3>Leadership</h3>
         <ul>
@@ -420,7 +505,7 @@
     <div class="bottom-grid">
 
       <!-- Education -->
-      <div class="bottom-card" id="education">
+      <div class="bottom-card reveal" id="education">
         <div class="section-label">Background</div>
         <h2>Education</h2>
         <div class="edu-items">
@@ -432,7 +517,7 @@
       </div>
 
       <!-- Contact -->
-      <div class="bottom-card" id="contact">
+      <div class="bottom-card reveal" id="contact">
         <div class="section-label">Say Hello</div>
         <h2>Let's <span>Connect</span></h2>
         <p>Open to opportunities in influencer marketing, content strategy, and brand partnerships.</p>
