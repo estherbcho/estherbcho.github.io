@@ -1,111 +1,64 @@
-# Esther B. Cho — Portfolio
+# estherbcho.github.io
 
-Influencer, Content, and Media Marketing professional with a wealth of expertise in advertising and digital marketing for brands. Known for a deep passion in creative brand storytelling, cultural innovation, and strategic ideation that drive impactful brand narratives.
+Personal portfolio website for **Esther B. Cho** — hosted for free via GitHub Pages with no custom domain required.
 
-Skilled in integrated strategy, cross-functional planning, co-marketing, account & project management, and end-to-end content production. Demonstrated success in executing and analyzing multi-platform campaigns that engage audiences, build brand loyalty, and deliver measurable results.
+**Live site:** [estherbcho.github.io](https://estherbcho.github.io)
 
-## Experience
+## What This Is
 
-### Influencer Marketing Manager — Uber
-**Sep 2025 - Mar 2026** | New York City Metropolitan Area | Hybrid
+A single-page portfolio showcasing Esther's career in influencer marketing, content strategy, and digital media. Built as a static site (HTML + CSS) so it loads fast, requires no backend, and deploys automatically when changes are pushed to `main`.
 
-Skills: Influencer Marketing, Paid Content
+## Site Structure
 
----
+```
+estherbcho.github.io/
+├── index.html   ← the portfolio page (what visitors see)
+├── style.css    ← all styling
+└── README.md    ← this file (only visible on GitHub)
+```
 
-### Ayzenberg (3 yrs 4 mos | Remote)
+## Sections
 
-**Director, Influencer & Content Partnerships**
-Nov 2022 - Sep 2024
+- **Hero** — name, tagline, and short summary with CTA buttons
+- **About Me** — detailed bio with photo placeholder and stats (10+ years, 15+ brands, 12+ roles)
+- **Brand Marquee** — scrolling banner of major clients (Uber, Apple, Intel, Microsoft, Red Bull, L'Oreal, etc.)
+- **Experience** — 6 featured roles in a 2-column card grid + 6 earlier roles behind a "Show More" toggle
+- **Skills** — 4 category cards (Strategy, Influencer & Content, Media & Digital, Leadership)
+- **Education** — placeholder (needs real info)
+- **Contact** — LinkedIn + placeholder email
 
-Clients: Intel, Microsoft, Universal Studios
+## How to Update
 
-Skills: Influencer Marketing, Brand Strategy
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/estherbcho/estherbcho.github.io.git
+   ```
+2. Edit `index.html` and/or `style.css`
+3. Commit and push to `main`:
+   ```bash
+   git add -A
+   git commit -m "describe your change"
+   git push
+   ```
+4. GitHub Pages deploys automatically — changes go live within a few minutes
 
-**Associate Director, Influencer & Content Partnerships**
-Jun 2021 - Nov 2022
+## Placeholders to Replace
 
-Skills: Influencer Marketing, Influencer Outreach
+These still have dummy content:
 
----
+| What | Where in `index.html` | Replace with |
+|------|----------------------|--------------|
+| Photo | `.photo-placeholder` div | An `<img>` tag with a real headshot |
+| Education | `#education` section | Real school names, degrees, and years |
+| Email | `mailto:placeholder@email.com` | Real contact email |
 
-### Creative Director — WWW
-**Nov 2020 - May 2021** | New York, United States
+## Tech Stack
 
-Skills: Social Media Marketing, Podcasting
-
----
-
-### Associate Director of Content — The Content Collective
-**Mar 2016 - Apr 2020** | New York City Metropolitan Area
-
-Clients: Frito-Lay Doritos, Quaker, Intel, Cigna, JCPenney
-
-Skills: Content Marketing, Content Strategy
-
----
-
-### Contributor — Mochi Magazine
-**Jun 2012 - Aug 2017** | Los Angeles Metropolitan Area | Remote
-
-Skills: Editorial, Fashion Styling
-
----
-
-### Contributor — VICE Media, The Creators Project
-**Oct 2015 - Mar 2017** | Los Angeles | Remote
-
-Skills: Editorial, Contemporary Art
-
----
-
-### Digital Media Consultant — TBWA\Media Arts Lab
-**Feb 2015 - Mar 2016** | Los Angeles, California
-
-Client: Apple - National, Global & iTunes
-
-Skills: Digital Strategy, Digital Marketing Media
-
----
-
-### Project Manager — Social Sound System
-**Jan 2015 - Mar 2015** | Los Angeles Metropolitan Area
-
-Clients: Iration, Ink-N-Iron, Burner
-
-Skills: Social Media, Project Management
-
----
-
-### Integrated Media Supervisor — Carat
-**Apr 2014 - Aug 2014** | Santa Monica, California
-
-Clients: Red Bull Local (North & West Business Units)
-
-Skills: Digital Media, Digital Strategy
-
----
-
-### Marketing Consultant — Localeur
-**Jul 2013 - Dec 2013** | Austin, Texas
-
-Skills: Special Events, Consulting
-
----
-
-### Digital Supervisor — Moxie Interactive
-**May 2011 - Jul 2013** | New York City Metropolitan Area
-
-Clients: L'Oreal Maybelline & Essie
-
-Skills: Digital Marketing Media, Beauty
-
----
+- **HTML + CSS** — no frameworks, no JavaScript dependencies
+- **Google Fonts** — DM Sans (body) + Playfair Display (headings)
+- **GitHub Pages** — free hosting, auto-deploys from `main` branch
 
 ## Links
 
+- [Live Site](https://estherbcho.github.io)
 - [LinkedIn](https://www.linkedin.com/in/estherbcho/)
-
-## Live Site
-
-Visit: [estherbcho.github.io](https://estherbcho.github.io)
