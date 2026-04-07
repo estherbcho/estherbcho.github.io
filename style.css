@@ -67,6 +67,14 @@ a:hover { color: var(--accent-light); }
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+@keyframes marqueeScrollReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-right {
+  animation: marqueeScrollReverse 35s linear infinite;
+}
 
 .animate-fade-up { animation: fadeUp 0.8s ease forwards; }
 .animate-delay-1 { animation-delay: 0.1s; opacity: 0; }
