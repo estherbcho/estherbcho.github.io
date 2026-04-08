@@ -822,71 +822,77 @@ section {
 .skill-card:nth-child(3) ul li::before { background: var(--teal); }
 .skill-card:nth-child(4) ul li::before { background: var(--gold); }
 
-/* ── Bottom Section – Education + Contact side by side */
-.bottom-section {
-  padding: 5rem 2rem;
+/* ── Education Section ────────────────────────────── */
+.edu-section {
+  padding: 5rem 2rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
-.bottom-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+.edu-inner {
+  text-align: center;
 }
-.bottom-card {
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2.5rem;
-}
-.bottom-card .section-label {
-  margin-bottom: 0.3rem;
-}
-.bottom-card h2 {
+.edu-inner h2 {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
-.bottom-card h2 span { color: var(--accent); }
-
-/* Education items */
-.edu-items {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+.edu-detail {
+  display: inline-block;
+  padding: 1.2rem 2.5rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 14px;
 }
-.edu-item {
-  padding-left: 1rem;
-  border-left: 3px solid var(--plum);
-}
-.edu-item h3 {
+.edu-detail h3 {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 0.2rem;
 }
-.edu-item .degree {
+.edu-degree {
   color: var(--accent);
   font-size: 0.9rem;
   font-weight: 500;
 }
-.edu-item .year {
-  font-size: 0.78rem;
-  color: var(--fg-muted);
-}
 
-/* Contact in bottom card */
-.bottom-card p {
+/* ── Contact Section ─────────────────────────────── */
+.contact-section {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.contact-inner {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 4rem 2.5rem;
+  text-align: center;
+}
+.contact-inner .section-label {
+  margin-bottom: 0.3rem;
+}
+.contact-inner h2 {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.contact-inner h2 span { color: var(--accent); }
+.contact-inner p {
   color: var(--fg-muted);
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
   line-height: 1.7;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .contact-links {
   display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 .contact-link {
   display: flex;
@@ -931,7 +937,7 @@ footer {
   .work-card-wide { grid-column: span 2; }
   .earlier-roles-grid { grid-template-columns: 1fr; }
   .skills-row { grid-template-columns: repeat(2, 1fr); }
-  .bottom-grid { grid-template-columns: 1fr; }
+  .contact-inner { padding: 3rem 1.5rem; }
 }
 
 @media (max-width: 768px) {
@@ -967,6 +973,6 @@ footer {
   .hero h1 { font-size: 2rem; }
   nav .logo { font-size: 1.1rem; }
   .section-header h2 { font-size: 1.8rem; }
-  .bottom-card { padding: 1.5rem; }
-  .bottom-card h2 { font-size: 1.6rem; }
+  .contact-inner { padding: 2.5rem 1.2rem; }
+  .contact-inner h2 { font-size: 1.8rem; }
 }
