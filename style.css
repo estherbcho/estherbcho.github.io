@@ -393,95 +393,35 @@ nav ul li a.active::after { width: 100%; }
   animation: marqueeScroll 35s linear infinite;
   width: max-content;
 }
-/* Brand wordmarks — styled to match each brand's logo identity */
-.brand-wordmark {
+/* Brand logo items in marquee */
+.brand-item {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   flex-shrink: 0;
-  color: rgba(255, 255, 255, 0.4);
+  opacity: 0.38;
   white-space: nowrap;
-  font-size: 1.3rem;
-  font-weight: 700;
-  transition: color 0.3s ease;
+  transition: opacity 0.3s ease;
 }
-.brand-wordmark:hover {
-  color: rgba(255, 255, 255, 0.75);
+.brand-item:hover {
+  opacity: 0.8;
 }
-.brand-icon {
-  height: 1em;
+.brand-logo-img {
+  height: 26px;
   width: auto;
-  vertical-align: middle;
+  display: block;
+  pointer-events: none;
+  user-select: none;
 }
-/* Uber — clean sans-serif, medium weight */
-.brand-uber {
-  font-family: 'DM Sans', Arial, sans-serif;
+.brand-logo-icon {
+  height: 22px;
+}
+.brand-logo-name {
+  font-size: 1.05rem;
   font-weight: 600;
-  letter-spacing: -0.5px;
-}
-/* Apple — slim sans-serif + icon */
-.brand-apple {
+  color: #ffffff;
   font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 500;
   letter-spacing: -0.3px;
-}
-/* Intel — lowercase, clean sans */
-.brand-intel {
-  font-family: 'DM Sans', Arial, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.3px;
-  text-transform: lowercase;
-}
-/* Microsoft — light sans-serif + icon */
-.brand-microsoft {
-  font-family: 'Segoe UI', 'DM Sans', Arial, sans-serif;
-  font-weight: 400;
-  letter-spacing: 0;
-}
-/* Red Bull — condensed, bold caps */
-.brand-redbull {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-size: 1.15rem;
-}
-/* L'Oreal — elegant italic serif */
-.brand-loreal {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 700;
-  font-style: italic;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-size: 1.15rem;
-}
-/* Universal Studios — serif, classic */
-.brand-universal {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  font-size: 1.1rem;
-}
-/* PepsiCo — rounded, friendly sans */
-.brand-pepsico {
-  font-family: 'DM Sans', Arial, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.3px;
-}
-/* VICE — heavy bold, tight tracking */
-.brand-vice {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 900;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  font-size: 1.2rem;
-}
-/* jcpenney — lowercase serif */
-.brand-jcpenney {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: lowercase;
 }
 
 /* ── Sections ─────────────────────────────────────── */
