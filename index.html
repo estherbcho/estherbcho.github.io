@@ -171,9 +171,10 @@
 
       <!-- Uber -->
       <div class="work-card work-card-full reveal" data-category="influencer">
-        <div class="work-media work-media-trio">
+        <div class="work-media work-media-quad">
           <video src="leendadong-alexa-uber.mp4" autoplay muted loop playsinline></video>
           <video src="uofs-deal-video.mp4" autoplay muted loop playsinline></video>
+          <video src="kristyscott.mp4" autoplay muted loop playsinline></video>
           <video src="arden-cho-oscars-uberblack.mp4" autoplay muted loop playsinline></video>
         </div>
         <div class="work-overlay">
@@ -461,22 +462,6 @@
 
       document.querySelectorAll('.about-stats').forEach(el => statObserver.observe(el));
 
-      // ── 4. Card tilt on hover ─────────────────────────
-      document.querySelectorAll('.work-card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -6;
-          const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 6;
-          card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
-        });
-        card.addEventListener('mouseleave', () => {
-          card.style.transition = 'transform 0.4s ease';
-          card.style.transform = '';
-          setTimeout(() => { card.style.transition = ''; }, 400);
-        });
-      });
 
     });
 

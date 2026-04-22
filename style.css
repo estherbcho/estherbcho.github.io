@@ -496,13 +496,12 @@ section {
   border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
   position: relative;
-  transform-style: preserve-3d;
-  perspective: 800px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .work-card:hover {
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 /* Staggered entrance delays */
 .work-card.reveal:nth-child(1) { transition-delay: 0s; }
@@ -554,9 +553,6 @@ section {
   gap: 0.5rem;
   transition: all 0.4s ease;
 }
-.work-card:hover .media-placeholder {
-  transform: scale(1.03);
-}
 .media-icon {
   font-size: 2rem;
   opacity: 0.4;
@@ -581,9 +577,6 @@ section {
   object-fit: cover;
   transition: transform 0.4s ease;
 }
-.work-card:hover .work-media-duo video {
-  transform: scale(1.05);
-}
 /* Three-item side-by-side layout */
 .work-media-trio {
   display: grid;
@@ -596,10 +589,6 @@ section {
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
-}
-.work-card:hover .work-media-trio video,
-.work-card:hover .work-media-trio img {
-  transform: scale(1.05);
 }
 .work-iframe {
   width: 100%;
@@ -615,10 +604,6 @@ section {
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
-}
-.work-card:hover .work-media img,
-.work-card:hover .work-media video {
-  transform: scale(1.05);
 }
 
 /* Logo-style card image (centered, not cropped) */
@@ -643,6 +628,14 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 0;
+}
+.work-media-quad video,
+.work-media-quad img,
+.work-media-quad iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 .work-media-mixed .work-iframe,
 .work-media-mixed .work-img {
@@ -877,8 +870,8 @@ section {
   transition: all 0.3s ease;
 }
 .skill-card:hover {
-  background: #f9f9f9;
   transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 .skill-card .card-icon {
   font-size: 1.5rem;
